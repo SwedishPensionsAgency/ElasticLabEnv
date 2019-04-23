@@ -1,4 +1,4 @@
 cluster.name: "docker-cluster"
-network.host: 0.0.0.0
+network.host: _site_
 xpack.monitoring.collection.enabled: true
 bootstrap.memory_lock: true
