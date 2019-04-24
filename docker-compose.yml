@@ -1,5 +1,23 @@
 version: '3.3'
 services:
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.0.0
+    container_name: fb01
+    environment:
+      XPACK_MONITORING_ELASTICSEARCH_USERNAME: beats_system
+      XPACK_MONITORING_ELASTICSEARCH_PASSWORD: t0p.s3cr3t
+      XPACK_MONITORING_ELASTICSEARCH_HOSTS: http://es01:9200
+    user: root
+    networks:
+      - esnet
+    volumes:
+      - filebeat:/usr/share/filebeat
+      - ./filebeat.docker.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+# include this first time starting filebeat
+#    command:
+#      - setup
+#      - --dashboards
   logstash:
     image: docker.elastic.co/logstash/logstash:7.0.0
     container_name: ls01
@@ -92,6 +110,8 @@ services:
     networks:
       - esnet
 volumes:
+  filebeat:
+    driver: local
   logstash:
     driver: local
   kibana:
