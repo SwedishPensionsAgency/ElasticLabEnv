@@ -14,6 +14,7 @@ services:
       - filebeat:/usr/share/filebeat
       - ./filebeat.docker.yml:/usr/share/filebeat/filebeat.yml:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/snap/docker/common/var-lib-docker/containers:/var/lib/docker/containers:ro
 # include this first time starting filebeat
 #    command:
 #      - setup
