@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   metricbeat:
-    image: docker.elastic.co/beats/metricbeat:7.0.0
+    image: docker.elastic.co/beats/metricbeat:7.0.1
     container_name: mb01
     environment:
       XPACK_MONITORING_ELASTICSEARCH_USERNAME: beats_system
@@ -19,7 +19,7 @@ services:
 #      - setup
 #      - --dashboards
   filebeat:
-    image: docker.elastic.co/beats/filebeat:7.0.0
+    image: docker.elastic.co/beats/filebeat:7.0.1
     container_name: fb01
     environment:
       XPACK_MONITORING_ELASTICSEARCH_USERNAME: beats_system
@@ -38,7 +38,7 @@ services:
 #      - setup
 #      - --dashboards
   logstash:
-    image: docker.elastic.co/logstash/logstash:7.0.0
+    image: docker.elastic.co/logstash/logstash:7.0.1
     container_name: ls01
     environment:
       XPACK_MONITORING_ENABLED: "true"
@@ -51,7 +51,7 @@ services:
       - logstash:/usr/share/logstash
       - ./pipeline:/usr/share/logstash/pipeline
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.0.0
+    image: docker.elastic.co/kibana/kibana:7.0.1
     container_name: kib01
     environment:
       ELASTICSEARCH_HOSTS: http://es01:9200
@@ -64,7 +64,7 @@ services:
     volumes:
       - kibana:/usr/share/kibana
   es01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.0.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.0.1
     container_name: es01
     environment:
       node.name: es01
@@ -87,7 +87,7 @@ services:
     networks:
       - esnet
   es02:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.0.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.0.1
     container_name: es02
     environment:
       node.name: es02
@@ -108,7 +108,7 @@ services:
     networks:
       - esnet
   es03:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.0.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.0.1
     container_name: es03
     environment:
       node.name: es03
