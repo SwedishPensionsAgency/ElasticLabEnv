@@ -1,7 +1,17 @@
 # 1)
 # Prepare the ES cluster
-# start the nodes es01-es03
+# start the nodes es01-es03 from the git directory, e.g. '/path/to/ElasticLabEnv'
 sudo docker-compose up es01 es02 es03
+
+# NOTE! If you get the error:
+ERROR: Get https://docker.elastic.co/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+# You need to create and set proxy information in:
+/etc/systemd/system/docker.service.d/https-proxy.conf
+# Like so:
+[Service]
+Environment="HTTP_PROXY=http://myproxy.org:8080/"
+Environment="HTTPS_PROXY=http://myproxy.org:8080/"
+Environment="NO_PROXY="localhost,127.0.0.1,::1"
 
 # 2)
 # add Elasticsearch superuser
