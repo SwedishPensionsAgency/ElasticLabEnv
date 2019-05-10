@@ -13,6 +13,11 @@ Environment="HTTP_PROXY=http://myproxy.org:8080/"
 Environment="HTTPS_PROXY=http://myproxy.org:8080/"
 Environment="NO_PROXY="localhost,127.0.0.1,::1"
 
+# NOTE! If you get this error:
+# es01 exited with code 78
+# You need to increase vm.max_map_count like so:
+sudo sysctl -w vm.max_map_count=262144
+
 # 2)
 # add Elasticsearch superuser
 # jump into the running es01 container
