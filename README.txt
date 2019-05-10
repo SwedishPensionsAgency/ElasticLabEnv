@@ -1,7 +1,7 @@
 # 1)
 # Prepare the ES cluster
 # start the nodes es01-es03 from the git directory, e.g. '/path/to/ElasticLabEnv'
-sudo docker-compose up es01 es02 es03
+sudo docker-compose up es0{1..3}
 
 # NOTE! If you get the error:
 ERROR: Get https://docker.elastic.co/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
