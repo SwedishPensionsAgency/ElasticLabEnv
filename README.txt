@@ -4,7 +4,7 @@
 sudo docker-compose up es0{1..3}
 
 # NOTE! If you get the error:
-ERROR: Get https://docker.elastic.co/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+# ERROR: Get https://docker.elastic.co/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
 # You need to create and set proxy information in:
 /etc/systemd/system/docker.service.d/https-proxy.conf
 # Like so:
