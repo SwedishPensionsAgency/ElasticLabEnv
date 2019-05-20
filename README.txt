@@ -11,7 +11,7 @@ sudo docker-compose up es0{1..3}
 [Service]
 Environment="HTTP_PROXY=http://myproxy.org:8080/"
 Environment="HTTPS_PROXY=http://myproxy.org:8080/"
-Environment="NO_PROXY="localhost,127.0.0.1,::1"
+Environment="NO_PROXY=localhost,127.0.0.1,::1"
 
 # NOTE! If you get this error:
 # es01 exited with code 78
