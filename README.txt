@@ -18,6 +18,9 @@ Environment="NO_PROXY=localhost,127.0.0.1,::1"
 # You need to increase vm.max_map_count like so:
 sudo sysctl -w vm.max_map_count=262144
 
+# When you see this json message you are ready to move to the next step
+"message": "Cluster health status changed from [YELLOW] to [GREEN]
+
 # 2)
 # add Elasticsearch superuser
 # jump into the running es01 container
